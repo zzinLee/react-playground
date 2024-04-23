@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState, memo, useCallback } from "react";
 
-export default function Article({ number }) {
+function Article({ number }) {
   console.log("📄 Render Article Component!");
 
   const [renderNumber, setRenderNumber] = useState(number);
-  const addNumber = () => {
+  const addNumber = useCallback(() => {
     setRenderNumber(renderNumber + 1);
-  };
+  },[renderNumber]);
 
   return (
     <p>
@@ -15,3 +15,7 @@ export default function Article({ number }) {
     </p>
   );
 }
+
+// const MemoArticle = memo(Article);
+// export default MemoArticle;
+export default Article;
