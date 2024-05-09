@@ -26,9 +26,9 @@ function StateComponent() {
     //3. DiceContext.Provider로 감싸고 value 값에 원하는 상태값을 전달합니다.
     //하위컴포넌트가 어디에 있어도 Provider가 value를 제공합니다.
     <DiceContext.Provider value={dice}>
-      <LocalOne dice={dice} />
+      <LocalOne />
       <div>
-        <LocalTwo dice={dice} />
+        <LocalTwo />
         <button onClick={replay}>replay</button>
       </div>
     </DiceContext.Provider>
