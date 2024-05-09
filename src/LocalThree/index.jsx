@@ -1,6 +1,10 @@
-function LocalThree({ dice }) {
+import { useContext } from "react";
+import { DiceContext } from "../StateComponent";
+
+function LocalThree() {
   console.log("🎨 Local Three render!");
 
+  const dice = useContext(DiceContext);
   const diceArrString = dice.map((v) => `🎲 ${v}`).join(" ");
 
   return (
