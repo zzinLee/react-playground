@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, memo } from "react";
 import { DiceContext } from "../StateComponent";
 
 function LocalOne() {
@@ -15,4 +15,6 @@ function LocalOne() {
   );
 }
 
-export default LocalOne;
+const MemoizedLocalOne = memo(LocalOne);
+
+export default MemoizedLocalOne;

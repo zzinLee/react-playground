@@ -1,3 +1,4 @@
+import { memo } from "react";
 import LocalThree from "../LocalThree";
 
 function LocalTwo() {
@@ -12,4 +13,6 @@ function LocalTwo() {
   );
 }
 
-export default LocalTwo;
+const MemoizedLocalTwo = memo(LocalTwo);
+
+export default MemoizedLocalTwo;
