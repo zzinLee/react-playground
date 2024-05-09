@@ -1,11 +1,5 @@
-import { useContext } from "react";
-import { DiceContext } from "../StateComponent"; 
-
-function LocalThree() {
+function LocalThree({ dice }) {
   console.log("🎨 Local Three render!");
-
-  //여기에서 useContext를 호출하여 value를 꺼내씁니다.
-  const dice = useContext(DiceContext);
 
   const diceArrString = dice.map((v) => `🎲 ${v}`).join(" ");
 

@@ -1,12 +1,9 @@
-import { useState, createContext } from "react";
+import { useState } from "react";
 
 import LocalOne from "../LocalOne";
 import LocalTwo from "../LocalTwo";
-import LocalThree from "../LocalThree";
 
 import { diceResult } from "../utils";
-
-export const DiceContext = createContext(diceResult());
 
 function StateComponent() {
   const initaialDiceResult = diceResult();
@@ -21,16 +18,13 @@ function StateComponent() {
   };
 
   return (
-    //DiceContext.Provider가 value로 dice를 전달하므로 depth에 관계없이, 어디에서든 useContext를 통해 호출할 수 있습니다.
-    <DiceContext.Provider value={dice}>
-      This is Where StateComponent is!
-      <LocalOne />
+    <>
+      <LocalOne dice={dice} />
       <div>
-        <LocalTwo />
-        <LocalThree />
+        <LocalTwo dice={dice} />
         <button onClick={replay}>replay</button>
       </div>
-    </DiceContext.Provider>
+    </>
   );
 }
 

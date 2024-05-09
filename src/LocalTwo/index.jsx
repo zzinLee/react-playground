@@ -1,20 +1,15 @@
-import { memo } from "react";
 import LocalThree from "../LocalThree";
 
-function LocalTwo() {
+function LocalTwo({ dice }) {
   console.log("🎨 Local Two render!");
 
   return (
     <>
       <h2>Local Two</h2>
       <p>{"I don't want to Rerender this"}</p>
-      <LocalThree />
+      <LocalThree dice={dice} />
     </>
   );
 }
 
-const memoLocalTwo = memo(LocalTwo);
-
-export default memoLocalTwo;
-
-// export default LocalTwo;
+export default LocalTwo;
