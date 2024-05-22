@@ -1,48 +1,57 @@
+import { useImmer } from "use-immer"
 import { useState } from "react";
+import { initialTravelPlan } from "./places.js";
 
-const initialItems = [
-  { title: "pretzels", id: 0 },
-  { title: "crispy seaweed", id: 1 },
-  { title: "granola bar", id: 2 },
-];
+function PlaceTree({ id, parentId, plan, deletePlan }) {
+  const place = plan[id];
+  const childIds = place.childIds;
 
-function App() {
-  const [items, setItems] = useState(initialItems);
-  const [selectedItemId, setSelectedItemId] = useState(0);
-  const handleChangeInput = (ev, id) => {
-    const changedItems = items.map((item) => {
-      return (item.id === id) ? {
-          ...item,
-          title: ev.target.value,
-        } : item;
-    });
-
-    setItems(changedItems);
-  };
-  const handleChooseButton = (ev, id) => {
-    ev.stopPropagation();
-
-    setSelectedItemId(id);
-  };
-
-  const itemElemList = items.map((item) => {
-    return (
-      <li key={item.id}>
-        <input type="text" value={item.title} onChange={(ev) => handleChangeInput(ev, item.id)} />
-        <button onClick={(ev) => handleChooseButton(ev, item.id)}>choose</button>
-      </li>
-    );
+  const childPlaces = childIds.length > 0 && childIds.map((childId) => {
+    return <PlaceTree key={childId} plan={plan} id={childId} parentId={id} deletePlan={deletePlan} />
   });
 
-  const selectedItem = items.find((item) => item.id === selectedItemId);
-
   return (
-    <>
-      <h3>{"What's your travel snack?"}</h3>
-      {itemElemList}
-      <p>You picked {selectedItem.title}</p>
-    </>
+    <li>
+      {place.title}
+      {childPlaces.length > 0 && (
+        <ol>
+          {childPlaces}
+        </ol>
+      )}
+      <button onClick={() => deletePlan(parentId, id)}>delete</button>
+    </li>
   );
 }
 
-export default App;
+export default function TravelPlan() {
+  const [plan, updatePlan] = useImmer(initialTravelPlan);
+  const root = plan[0];
+  const parentIds = root.childIds;
+
+  const deletePlace = (parentId, childId) => {
+    updatePlan((draft) => {
+      const parent = draft[parentId];
+      parent.childIds = parent.childIds.filter((id) => id !== childId);
+
+      const deleteAllChildren = (id) => {
+        const place = draft[id];
+        place.childIds.forEach(deleteAllChildren);
+
+        delete draft[id];
+      };
+
+      deleteAllChildren(childId);
+    });
+  };
+
+  return (
+    <>
+      <h2>Places to visit</h2>
+      <ol>
+        {parentIds.length > 0 && parentIds.map((id) => (
+          <PlaceTree key={id} id={id} parentId={0} plan={plan} deletePlan={deletePlace} />
+        ))}
+      </ol>
+    </>
+  );
+}
