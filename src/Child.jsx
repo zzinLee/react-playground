@@ -1,10 +1,8 @@
-import { useState } from "react";
-
-export default function Child() {
-  const [isOpen, setIsOpen] = useState(false);
+export default function Child({ index, changeOpenIndex, openIndex }) {
+  const isOpen = index === openIndex;
   const handleClick = () => {
-    setIsOpen(!isOpen);
-  }
+    changeOpenIndex(index);
+  };
 
   return (
     <div>

@@ -1,12 +1,24 @@
+import { useState } from "react";
+
 import Child from "./Child";
 
 export default function App() {
+  //상태를 끌어올립니다.
+  const childrenArray = new Array(3).fill(0);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const childrenElemArray = childrenArray.map((_, index) => (
+    <Child
+      index={index}
+      changeOpenIndex={setSelectedIndex}
+      openIndex={selectedIndex}
+      key={`child_${index}`}
+    />
+  ));
+
   return (
     <div>
-      현재는 Child가 상태를 공유하고 있지 않습니다. <br></br>
-      하지만 Child 컴포넌트가 하나가 열릴 때 나머지 하나가 닫힌다면 어떨까요?
-      <Child />
-      <Child />
+      상태를 공유하는 가장 가까운 부모컴포넌트입니다. <br></br>
+      {childrenElemArray}
     </div>
   );
 }
