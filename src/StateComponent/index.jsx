@@ -41,31 +41,19 @@ const tasksReducer = (tasks, action) => {
 
 function StateComponent() {
   console.log("✨ StateComponent App render");
+
   const [tasks, dispatch] = useReducer(
     tasksReducer, initialTasks
   );
 
-  const handleChangeTask = (task) => {
-    dispatch({
-      type: "change",
-      task: task,
-    });
-  };
-  const handleDeleteTask = (taskId) => {
-    dispatch({
-      type: "delete",
-      id: taskId,
-    });
-  };
-
   return (
     <>
       <h1>Day off in Kyoto</h1>
-      <TaskList
-        tasks={tasks}
-        onChangeTask={handleChangeTask}
-        onDeleteTask={handleDeleteTask}
-      />
+      <TasksContext.Provider value={tasks}>
+        <TasksDispatchContext.Provider value={dispatch}>
+          <TaskList />
+        </TasksDispatchContext.Provider>
+      </TasksContext.Provider>
     </>
   );
 }
