@@ -1,4 +1,4 @@
-import { useState, memo } from "react";
+import { useState, memo, useMemo } from "react";
 import { useTask, useTaskDispatch } from "../context/tasksContext";
 
 const MemoizedTask = memo(Task);
@@ -7,12 +7,22 @@ export default function TaskList() {
   console.log("✨ TaskList render");
   const tasks = useTask();
 
-  //임의의 object를 줘보자. 실행할 떄 마다 재할당될 것이다.
-  const specialObject = {
-    text: "🎉 specialObject",
-    done: true,
-    id: "1004",
-  };
+  // const specialObject = {
+  //   text: "🎉 specialObject",
+  //   done: true,
+  //   id: "1004",
+  // };
+
+
+  //그렇다면 어떻게 하지? useMemo를 사용하여 값을 캐싱하자.
+  const specialObject = useMemo(
+    () => ({
+      text: "🎉 specialObject",
+      done: true,
+      id: "1004",
+    }),
+    []
+  );
 
   return (
     <ul>
