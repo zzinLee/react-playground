@@ -1,28 +1,35 @@
-import { useState, memo, useMemo } from "react";
+import { useState, memo, useMemo, useCallback } from "react";
 import { useTask, useTaskDispatch } from "../context/tasksContext";
+
+import MemoziedImmutable from "../Immutable";
 
 const MemoizedTask = memo(Task);
 
-export default function TaskList() {
+export default function TaskList({ number }) {
   console.log("✨ TaskList render");
   const tasks = useTask();
 
-  // const specialObject = {
-  //   text: "🎉 specialObject",
-  //   done: true,
-  //   id: "1004",
-  // };
+  const heavyValue = useMemo(() => {
+    for (let i = 0; i < number; i++) {
+      console.log("heavy Work doing...");
+    }
 
+    return number;
+  }, [number]);
 
-  //그렇다면 어떻게 하지? useMemo를 사용하여 값을 캐싱하자.
-  const specialObject = useMemo(
-    () => ({
-      text: "🎉 specialObject",
-      done: true,
-      id: "1004",
-    }),
-    []
-  );
+  const emptyDependency = useMemo(() => {
+    console.log("🗑️ EMPTY");
+  }, []); //Initial mount
+
+  const nullDependency = useMemo(() => {
+    console.log("❌ NULL");
+  });//every Render
+
+  const handleClick = useCallback((ev) => {
+    console.log(ev);
+
+    console.log("click DIV!");
+  }, []);
 
   return (
     <ul>
@@ -32,9 +39,8 @@ export default function TaskList() {
           <MemoizedTask task={task} />
         </li>
       ))}
-      {/** 따라서 하단의 컴포넌트는 memo를 하는 의미가 없다. */}
       <li>
-        <MemoizedTask task={specialObject} />
+        <MemoziedImmutable value={heavyValue} onClick={handleClick} />
       </li>
     </ul>
   );
