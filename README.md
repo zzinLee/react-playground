@@ -18,3 +18,15 @@
 [리액트 공식 홈페이지 createContext](https://react.dev/reference/react/createContext) 와 <br>
 [리액트 공식 홈페이지 useContext](https://react.dev/reference/react/useContext)를 통해 학습한 내용을 실습하였습니다. <br>
 커밋 별로 Context API 를 사용하여 prop drilling 을 제거하는 과정을 볼 수 있습니다. <br>
+
+## `state`branch
+[리액트 공식 홈페이지 choosing the state structure](https://react.dev/learn/choosing-the-state-structure) 를 통해 학습한 내용을 실습하였습니다. <br>
+
+## `sharingState`branch
+[리액트 공식 홈페이지 sharing state between components](https://react.dev/learn/sharing-state-between-components) 를 통해 학습한 내용을 실습하였습니다. <br>
+
+## `reducerContext`branch
+[리액트 공식 홈페이지 scaling up with reducer and context](https://react.dev/learn/scaling-up-with-reducer-and-context) 를 통해 학습한 내용을 실습하였습니다. <br>
+`React.memo`, `useMemo`, `useCallback` 등을 사용해보며 리렌더링을 막는 방법을 고민합니다. <br>
+
+
