@@ -51,7 +51,7 @@ function StateComponent() {
       <h1>Day off in Kyoto</h1>
       <TasksContext.Provider value={tasks}>
         <TasksDispatchContext.Provider value={dispatch}>
-          <TaskList />
+          <TaskList number={50} />
         </TasksDispatchContext.Provider>
       </TasksContext.Provider>
     </>
