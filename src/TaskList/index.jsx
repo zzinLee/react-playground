@@ -14,19 +14,19 @@ export default function TaskList({ number }) {
       console.log("heavy Work doing...");
     }
 
-    return number;
+    return { value: number };
   }, [number]);
 
-  const emptyDependency = useMemo(() => {
-    console.log("🗑️ EMPTY");
-  }, []); //Initial mount
+  // const emptyDependency = useMemo(() => {
+  //   console.log("🗑️ EMPTY");
+  // }, []); //Initial mount
 
-  const nullDependency = useMemo(() => {
-    console.log("❌ NULL");
-  });//every Render
+  // const nullDependency = useMemo(() => {
+  //   console.log("❌ NULL");
+  // });//every Render
 
   const handleClick = useCallback((ev) => {
-    console.log(ev);
+    console.log(ev.target);
 
     console.log("click DIV!");
   }, []);
@@ -40,7 +40,7 @@ export default function TaskList({ number }) {
         </li>
       ))}
       <li>
-        <MemoziedImmutable value={heavyValue} onClick={handleClick} />
+        <MemoziedImmutable value={heavyValue.value} onClick={handleClick} />
       </li>
     </ul>
   );
