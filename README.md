@@ -10,7 +10,7 @@
 
 ## `multiRoots` branch
 [리액트 공식 홈페이지](https://react.dev/learn/describing-the-ui) 를 통해 학습한 내용을 실습하였습니다. <br>
-리액트는 반드시 단 하나의 `root` 만 있어야 하는 것이 아니라, 여러개 존재할 수 있다는 내용입니다. <br>
+리액트는 반드시 단 하나의 `root` 만 있어야 하는 것이 아니라, 여러 개 존재할 수 있습니다. <br>
 
 </br>
 
