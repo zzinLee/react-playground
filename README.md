@@ -23,7 +23,7 @@
 ## `context-origin` branch
 [리액트 공식 홈페이지 createContext](https://react.dev/reference/react/createContext) 와 <br>
 [리액트 공식 홈페이지 useContext](https://react.dev/reference/react/useContext)를 통해 학습한 내용을 실습하였습니다. <br>
-커밋 별로 Context API 를 사용하여 prop drilling 을 제거하는 과정을 볼 수 있습니다. <br>
+커밋 별로 Context API를 사용하여 prop drilling 을 제거하는 과정을 볼 수 있습니다. <br>
 
 </br>
 
