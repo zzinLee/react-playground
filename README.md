@@ -10,7 +10,7 @@
 진행하고 있는 리액트 스터디에 대한 자료 모음집을 구경하고 싶으시다면 아래에 아이콘을 클릭해주세요. <br>
 
 [![Notion Badge](https://img.shields.io/badge/ReactStudy-Group-FEDCCA?style=for-the-badge&logo=Notion&logoColor=white&link=https://minsug.notion.site/fbdba22fd7054a5583a19983c31d2829?pvs=4)](https://minsug.notion.site/fbdba22fd7054a5583a19983c31d2829?pvs=4)
-[![Notion Badge](https://img.shields.io/badge/ReactStudy-Private-FEDCDA?style=for-the-badge&logo=Notion&logoColor=white&link=https://www.notion.so/zzinlee/React-dev-learn-170b2701d59c4dc3bc44a1c8a8d432c8?pvs=4)](https://www.notion.so/zzinlee/React-dev-learn-170b2701d59c4dc3bc44a1c8a8d432c8?pvs=4)
+[![Notion Badge](https://img.shields.io/badge/ReactStudy-Private-FEDCDA?style=for-the-badge&logo=Notion&logoColor=white&link=[https://www.notion.so/zzinlee/React-dev-learn-170b2701d59c4dc3bc44a1c8a8d432c8?pvs=4](https://zzinlee.notion.site/React-dev-learn-170b2701d59c4dc3bc44a1c8a8d432c8?pvs=4))]([https://www.notion.so/zzinlee/React-dev-learn-170b2701d59c4dc3bc44a1c8a8d432c8?pvs=4](https://zzinlee.notion.site/React-dev-learn-170b2701d59c4dc3bc44a1c8a8d432c8?pvs=4))
 
 </br>
 
